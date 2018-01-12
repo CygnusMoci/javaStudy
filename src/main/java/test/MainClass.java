@@ -10,10 +10,14 @@ import java.util.Scanner;
  **/
 public class MainClass {
     public static void main(String[] args) {
-        double r = 5.0;
-        double x = Math.sqrt(2) * r / 2;
-        System.out.println(Math.sqrt(2) );
-        System.out.println(x);
+        double a = Math.sqrt(2);
+        double b = Math.sqrt(2)/2;
+        double c = 1/Math.sqrt(2);
+
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+
 
     }
 
