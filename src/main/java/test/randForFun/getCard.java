@@ -45,17 +45,7 @@ public class getCard extends JFrame implements ActionListener {
                 String s =e.getActionCommand();
                 if(s.equals("单抽")){
                     soloGet();
-                    System.out.println("抽奖结束！ 谢谢光临！");
-                    System.out.println("结果统计:");
-                    System.out.println("-------------------");
-                    System.out.println("|SSR: "+ssrNum+"  <<<");
-                    System.out.println("-------------------");
-                    System.out.println("|SR: "+srNum+"  <<<");
-                    System.out.println("-------------------");
-                    System.out.println("|R: "+rNum+"  <<<");
-                    System.out.println("-------------------");
-                    System.out.println("|抽奖次数: "+getTime+"  <<<");
-                    System.out.println("-------------------");
+                    showResult();
                 }
             }
         });
@@ -65,17 +55,7 @@ public class getCard extends JFrame implements ActionListener {
                 String s =e.getActionCommand();
                 if(s.equals("十连抽")){
                     mutiGet();
-                    System.out.println("抽奖结束！ 谢谢光临！");
-                    System.out.println("结果统计:");
-                    System.out.println("-------------------");
-                    System.out.println("|SSR: "+ssrNum+"  <<<");
-                    System.out.println("-------------------");
-                    System.out.println("|SR: "+srNum+"  <<<");
-                    System.out.println("-------------------");
-                    System.out.println("|R: "+rNum+"  <<<");
-                    System.out.println("-------------------");
-                    System.out.println("|抽奖次数: "+getTime+"  <<<");
-                    System.out.println("-------------------");
+                    showResult();
                 }
             }
         });
@@ -126,5 +106,19 @@ public class getCard extends JFrame implements ActionListener {
         if(s.equals("点我")){
             soloGet();
         }
+    }
+
+    public static void showResult(){
+        System.out.println("抽奖结束！ 谢谢光临！");
+        System.out.println("结果统计:");
+        System.out.println("-------------------");
+        System.out.println("|SSR: "+ssrNum+"  <<<");
+        System.out.println("-------------------");
+        System.out.println("|SR: "+srNum+"  <<<");
+        System.out.println("-------------------");
+        System.out.println("|R: "+rNum+"  <<<");
+        System.out.println("-------------------");
+        System.out.println("|抽奖次数: "+getTime+"  <<<");
+        System.out.println("-------------------");
     }
 }
