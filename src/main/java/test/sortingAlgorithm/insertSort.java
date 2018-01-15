@@ -22,7 +22,7 @@ public class insertSort implements sortImpl {
     }
 
     /**
-     * 算法
+     * 算法1
      *
      */
     public int[] sort() {
