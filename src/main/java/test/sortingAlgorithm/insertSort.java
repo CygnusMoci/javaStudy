@@ -1,5 +1,7 @@
 package test.sortingAlgorithm;
 
+import test.MainClass;
+
 /**
  * 插入排序
  * @author moci
@@ -27,6 +29,7 @@ public class insertSort implements sortImpl {
      */
     public int[] sort() {
         int result[] = this.array;
+        int num =1;
         for (int i = 1; i <this.array.length; i++) {
             int j = i-1; //作为移动的基准
             int temp = this.array[i];
@@ -36,6 +39,9 @@ public class insertSort implements sortImpl {
                 j--;
             }
             result[j+1] = temp;
+            MainClass ma = new MainClass();
+            System.out.println("第"+num+++"次移动:");
+            ma.printArray(array);
         }
 
         return result;
@@ -46,12 +52,6 @@ public class insertSort implements sortImpl {
      */
     public void sortName() {
         System.out.println("这个排序算法的名字是: "+this.sortName);
-    }
-
-    public void printOut() {
-        for (int i = 0; i <array.length; i++) {
-            System.out.println(array[i]+ " ");
-        }
     }
 
     public int[] getArray() {

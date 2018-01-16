@@ -7,5 +7,4 @@ package test.sortingAlgorithm;
 public interface sortImpl {
     int[] sort();
     void sortName();
-    void printOut();
 }
