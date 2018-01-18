@@ -1,7 +1,6 @@
 package TestForJob.JianZhiOffer_;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 /**
  * 输入一个链表，从尾到头打印链表每个节点的值。
@@ -11,15 +10,15 @@ import java.util.Stack;
 
 public class a3_PrintLianBiao {
 
-//  链表结构
-//        public class ListNode {
-//             int val;
-//             ListNode next = null;
-//
-//             ListNode(int val) {
-//                 this.val = val;
-//             }
-//         }
+
+        public class ListNode {
+             int val;
+             ListNode next = null;
+
+             ListNode(int val) {
+                 this.val = val;
+             }
+         }
 
     ArrayList<Integer> arrayList=new ArrayList<Integer>();
     public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
