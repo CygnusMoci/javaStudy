@@ -13,6 +13,7 @@ import java.util.Scanner;
  **/
 public class getCard extends JFrame implements ActionListener {
     public static int getTime = 0;
+    public static int mutTime = 0;
 
     public static final double ssrRate = 2.0;
     public static int ssrNum = 0;
@@ -26,11 +27,9 @@ public class getCard extends JFrame implements ActionListener {
 //    public static final double nRate = 3.0;
 
 
-    public static void main(String[] args) {
-        new getCard();
-    }
 
-    private getCard(){
+
+    getCard(){
         JFrame jFrame = new JFrame();
         JButton b1 = new JButton("单抽");
         JButton b2 = new JButton("十连抽");
@@ -96,7 +95,15 @@ public class getCard extends JFrame implements ActionListener {
     }
 
     private static void mutiGet(){
-        for (int i = 0; i <11 ; i++) {
+        int temp =srNum;
+        for (int i = 0; i <10 ; i++) {
+            soloGet();
+        }
+        if(temp ==srNum){
+            System.out.println("恭喜你抽中了SR！");
+            srNum++;
+            mutTime++;
+        }else{
             soloGet();
         }
     }
@@ -119,6 +126,8 @@ public class getCard extends JFrame implements ActionListener {
         System.out.println("|R: "+rNum+"  <<<");
         System.out.println("-------------------");
         System.out.println("|抽奖次数: "+getTime+"  <<<");
+        System.out.println("-------------------");
+        System.out.println("|保底次数: "+mutTime+"  <<<");
         System.out.println("-------------------");
     }
 }
