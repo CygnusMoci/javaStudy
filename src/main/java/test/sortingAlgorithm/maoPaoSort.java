@@ -1,7 +1,5 @@
 package test.sortingAlgorithm;
 
-import test.MainClass;
-
 /**
  * @author moci
  * @create 2018-01-16 3:40 PM

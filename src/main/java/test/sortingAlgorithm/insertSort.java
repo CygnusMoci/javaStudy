@@ -1,7 +1,5 @@
 package test.sortingAlgorithm;
 
-import test.MainClass;
-
 /**
  * 插入排序
  * @author moci

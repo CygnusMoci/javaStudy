@@ -1,9 +1,5 @@
-package test;
+package test.sortingAlgorithm;
 
-
-import test.sortingAlgorithm.ShellSort;
-import test.sortingAlgorithm.insertSort;
-import test.sortingAlgorithm.maoPaoSort;
 
 import java.util.Scanner;
 
@@ -15,11 +11,17 @@ public class MainClass {
 
     public static final int testMax = 100;//测试数组最大值
     public static final int testNum = 20; //测试数组元素个数
+    public static final int arrayA[] = randmArray(testMax,testNum);
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("原始数组：");
+        printArray(arrayA);
+        System.out.println("输入数字 对上述数组进行从小到大排序");
         while (sc.hasNext()){
             int sw = sc.nextInt();
+            for (int i = 0; i <arrayA.length; i++) {
+            }
             switch (sw){
                 case 1:
                     useInserSort(); //插入排序
@@ -33,13 +35,14 @@ public class MainClass {
                 default:
                     System.out.println("算法尚未完成");
             }
+            System.out.println("原始数组：");
+            printArray(arrayA);
         }
     }
 
 
     public static void useMaoPaoSort(){
-        int array[] = randmArray(testMax,testNum);
-        printArray(array);
+        int[] array = arrayA.clone();
         new maoPaoSort().sortName();
         long startTime=System.currentTimeMillis();
         new maoPaoSort(array).sort();
@@ -47,9 +50,10 @@ public class MainClass {
         System.out.println("排序时间: "+(endTime-startTime)+" ms ");
     }
 
+
+
     public static void useShellSort(){
-        int array[] = randmArray(testMax,testNum);
-        printArray(array);
+        int[] array = arrayA.clone();
         new ShellSort().sortName();
         long startTime=System.currentTimeMillis();
         new ShellSort(array).sort();
@@ -58,17 +62,17 @@ public class MainClass {
     }
 
 
+    /**
+     * 直接插入排序
+     */
     public static void useInserSort(){
-        int array[] = randmArray(testMax,testNum);
-        printArray(array);
+        int[] array = arrayA.clone();
         new insertSort().sortName();
         long startTime=System.currentTimeMillis();
         new insertSort(array).sort();
         long endTime=System.currentTimeMillis();
         System.out.println("排序时间: "+(endTime-startTime)+" ms ");
     }
-
-
 
 
     /**
