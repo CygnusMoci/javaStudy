@@ -7,9 +7,8 @@ package thread;
 public class MainClass {
     public static void main(String[] args) {
 
-        new station().start();
-        new station().start();
-        new station().start();
-        new station().start();
+        station a = new station();
+        Thread c = new Thread(a);
+        a.start();
     }
 }

@@ -34,11 +34,13 @@ public class getCard extends JFrame implements ActionListener {
         JButton b1 = new JButton("单抽");
         JButton b2 = new JButton("十连抽");
         JPanel p1 = new JPanel();
+        JTextArea jt = new JTextArea();
 
         jFrame.add(p1);
         jFrame.setLayout(new FlowLayout());
         p1.add(b1);
         p1.add(b2);
+        p1.add(jt);
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String s =e.getActionCommand();
@@ -94,6 +96,9 @@ public class getCard extends JFrame implements ActionListener {
         getTime++;
     }
 
+    /**
+     * 十连抽 带保底
+     */
     private static void mutiGet(){
         int temp =srNum;
         for (int i = 0; i <10 ; i++) {
