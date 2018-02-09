@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author moci
  * @create 2018-01-09 4:07 PM
  **/
-public class wonderfulPoint {
+public class a1_wonderfulPoint {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()){

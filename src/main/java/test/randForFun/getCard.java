@@ -68,7 +68,7 @@ public class getCard extends JFrame implements ActionListener {
         jFrame.setLocation(400,200);
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("随意输入咒语，进行抽奖！");
+        System.out.println("点击按钮，进行抽奖！");
         while (sc.hasNext()){
             String str = sc.nextLine();
             soloGet();

@@ -11,96 +11,90 @@ import java.awt.event.KeyEvent;
  **/
 public class MyJframe extends JFrame {
     JFrame win;
-    JLabel jLabel;
-    Icon plane;
-    JLabel shoot;
+    JLabel planeLab;
+    JLabel shootLab;
+    Icon planeImg;
     Icon shootImg;
-    Point pos;
+    Point posPlane;
     Point posShoot;
     MyJframe(){
         init();
-        threadA a =new threadA();
-        threadB b =new threadB();
-        a.start();
-        b.start();
+        listen();
     }
 
     public void init(){
         win =new JFrame();
-        jLabel =new JLabel();
-        shoot =new JLabel();
 
-        plane = new ImageIcon(getClass().getResource("/plane.png"));
-        shootImg = new ImageIcon(getClass().getResource("/shoot.png"));
+        Plane plane = new Plane(win);
+        posPlane = new Point(plane.getX(),plane.getY());
 
-        jLabel.setLocation(350,400);
-        pos = jLabel.getLocation();
-
-        jLabel.setSize(plane.getIconWidth(),plane.getIconHeight());
-        shoot.setSize(shootImg.getIconWidth(),shootImg.getIconHeight());
-
-        shoot.setLocation(pos);
-        posShoot = shoot.getLocation();
-
-        jLabel.setIcon(plane);
-        shoot.setIcon(shootImg);
-
-        win.setBounds(400,200,800,600);
+        win.setBounds(400,200,1000,1000);
         win.setVisible(true);
-        win.add(jLabel);
-        win.add(shoot);
+        win.setLayout(null);
         win.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    public void listen(){
+        win.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int k = e.getKeyCode();
+               switch (k){
+                   case KeyEvent.VK_RIGHT :
+                       new threadRight().start();
+                       System.out.println(posPlane+"  "+posShoot);
+                       break;
+                   case KeyEvent.VK_LEFT:
+                       new threadLeft().start();
+                       System.out.println(posPlane+"  "+posShoot);
+                       break;
+                   case KeyEvent.VK_K:
+                       new threadShoot().start();
+                       System.out.println(posPlane+"  "+posShoot);
+                       shootLab.setLocation(posPlane);
+                       break;
+                   default:break;
+               }
+            }
+        });
+    }
 
-
-    public class threadB extends Thread{
+    public class threadRight extends Thread{
         @Override
         public void run() {
-            win.addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyPressed(KeyEvent e) {
-                    int k = e.getKeyCode();
-                    if(k==KeyEvent.VK_RIGHT){
-                        pos.x = pos.x +5;
-                    }else if(k==KeyEvent.VK_LEFT){
-                        pos.x = pos.x -5;
-                    }
-                    jLabel.setLocation(pos);
-                    shoot.setLocation(pos);
-                }
-            });
+            posPlane.x = posPlane.x +5;
+            planeLab.setLocation(posPlane);
+            System.out.println("right!");
+            System.out.println(this.getName());
+        }
+
+
+    }
+
+    public class threadLeft extends Thread{
+        @Override
+        public void run() {
+            posPlane.x = posPlane.x -5;
+            planeLab.setLocation(posPlane);
+            System.out.println("left!");
         }
     }
 
-    public class threadA extends Thread{
+    public class threadShoot extends Thread{
         @Override
-        public void run() {
-            win.addKeyListener(new KeyAdapter() {
-                @Override
-                public void keyPressed(KeyEvent e) {
-                    int k = e.getKeyCode();
-                    if(k==KeyEvent.VK_K) {
-                        for (int i = 0; i <50; i++) {
-                            posShoot.y-=1;
-                            try {
-                                sleep(100);
-                            } catch (InterruptedException e1) {
-                                e1.printStackTrace();
-                            }
-                            shoot.setLocation(posShoot);
-                        }
-
-                        System.out.println(posShoot.y);
-                    }
+        public void run(){
+            Point temp = posShoot;
+            try {
+                for (int i = 0; i <5; i++) {
+                    temp.y -= 20;
+                    sleep(300);
+                    shootLab.setLocation(temp);
+                    System.out.println("shoot!");
                 }
-            });
-            shoot.setLocation(pos);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
-
-
-
-
 
 }

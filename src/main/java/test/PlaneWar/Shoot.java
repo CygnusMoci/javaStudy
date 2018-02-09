@@ -4,9 +4,9 @@ import javax.swing.*;
 
 /**
  * @author moci
- * @create 2018-01-26 3:16 PM
+ * @create 2018-01-24 3:13 PM
  **/
-public class Plane {
+public class Shoot {
     private int x;
     private int y;
     private int width;
@@ -14,19 +14,27 @@ public class Plane {
     private JLabel jLabel;
     private Icon icon;
 
-    public Plane(JFrame myJframe){
+
+    public Shoot(MyJframe myJframe,Plane plane) {
 
         jLabel = new JLabel();
-        icon = new ImageIcon(getClass().getResource("/Plane.png"));
+        icon = new ImageIcon(getClass().getResource("/shoot.png"));
         jLabel.setIcon(icon);
         myJframe.add(jLabel);
 
         this.width = icon.getIconWidth();
         this.height = icon.getIconHeight();
-        this.x = myJframe.getWidth()/2;
-        this.y = myJframe.getHeight()-this.getHeight();
+        this.x = plane.getX()+(plane.getWidth()-this.getWidth());
+        this.y = plane.getY()+(plane.getHeight()-this.getHeight());
+
+        jLabel.setLocation(x,y);
     }
 
+
+
+    public void fly(int step){
+
+    }
 
     public int getX() {
         return x;
