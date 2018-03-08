@@ -31,7 +31,7 @@ public class a2_ReplaceBlankspace {
     }
 
     /**
-     * 最佳答案 小于1ms
+     * 最佳答案
      * @param str
      * @return
      */

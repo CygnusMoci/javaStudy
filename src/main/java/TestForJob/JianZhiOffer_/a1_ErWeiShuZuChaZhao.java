@@ -9,6 +9,11 @@ package TestForJob.JianZhiOffer_;
 
 public class a1_ErWeiShuZuChaZhao {
 
+    public static void main(String[] args) {
+        int[][] array = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
+        System.out.println(Find3(8,array));
+    }
+
     /**
      * 暴力遍历 效率很低  200ms
      */
@@ -40,6 +45,22 @@ public class a1_ErWeiShuZuChaZhao {
                 i++;
             }else{
                 return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean Find3(int target,int [][] array){
+        int height = array.length;
+        int width = array[0].length;
+        int x=0;
+        int y=width-1;
+        while(x<=height-1&&y>=0){
+            if(array[x][y] == target) return true;
+            else if(array[x][y]>target) {
+                y--;
+            }else if(array[x][y]<target){
+                x++;
             }
         }
         return false;
