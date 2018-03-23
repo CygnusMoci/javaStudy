@@ -9,6 +9,11 @@ package TestForJob.JianZhiOffer_;
  **/
 public class a2_ReplaceBlankspace {
 
+    public static void main(String[] args) {
+        StringBuffer str =new StringBuffer("we are happy.");
+        System.out.println();
+    }
+
     /**
      * 18ms
      占用内存：12556k
@@ -50,5 +55,34 @@ public class a2_ReplaceBlankspace {
             }
         }
         return newStr.toString();
+    }
+
+    public static String replace3(StringBuffer  str){
+        int p1 = str.length();
+        int p2 = blankNum(str)*2+p1;
+        StringBuilder newstr = new StringBuilder(p2);
+        while (p1>0){
+            if(str.charAt(p1)==' '){
+                newstr.append('%');
+                newstr.append('2');
+                newstr.append('0');
+                p2=p1;
+                p1-=3;
+
+            }else{
+                newstr.setCharAt(p2,str.charAt(p1));
+                p1--;
+                p2--;
+            }
+        }
+        return newstr.toString();
+    }
+
+    public static int blankNum(StringBuffer str){
+        int num=0;
+        for (int i = 0; i <str.length(); i++) {
+            if(str.charAt(i)==' ') num++;
+        }
+        return num;
     }
 }
