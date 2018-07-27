@@ -6,8 +6,6 @@ package TestForJob.JianZhiOffer_;
  **/
 public class a7_1add2addN {
     public int Sum_Solution(int n) {
-
-
         int e = (int)(Math.pow(n, 2) + n) >> 1;
         return e;
 

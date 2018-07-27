@@ -8,6 +8,7 @@ package test.sortingAlgorithm;
 public class insertSort implements sortImpl {
 
     private String sortName = "插入排序";
+    private int _ = 5;
     private int[] array;
 
 
@@ -31,7 +32,6 @@ public class insertSort implements sortImpl {
         for (int i = 1; i <this.array.length; i++) {
             int j = i-1; //作为移动的基准
             int temp = this.array[i];
-
             while (j>=0&&temp<this.array[j]){
                 this.array[j+1] = this.array[j];
                 j--;
@@ -44,6 +44,43 @@ public class insertSort implements sortImpl {
 
         return result;
     }
+
+    /**
+     * 算法2,书上的经典写法.
+     * @param a
+     * @param n
+     * @param <T>
+     */
+
+    public static <T extends Comparable<? super T>> void selectionSort(T[] a,int n){
+        for (int index = 0; index < n - 1; index++) {
+            //外循环比较
+            int indexOfNextSmallest = getIndexOfNextSmallest(a,index,n-1);
+            swap(a,index,indexOfNextSmallest);
+        }
+    }
+
+    private static <T extends Comparable<? super T>> int getIndexOfNextSmallest(T[] a,int first,int last){
+        T min = a[first];
+        int indexOfMin = first;
+        for (int index = first+1; index <=last ; index++) {
+            //内循环比较,从头开始 i = 1;
+            //交换大小
+            if(a[index].compareTo(min)<0){
+                min = a [index];
+                indexOfMin = index;
+            }
+        }
+        return indexOfMin;
+    }
+
+    private static void swap(Object[] a, int i, int j){
+        Object temp = a[i] ;
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+
 
     /**
      * 打印算法名字

@@ -1,5 +1,7 @@
 package test.sortingAlgorithm;
 
+import java.io.BufferedReader;
+
 /**
  * @author moci
  * @create 2018-01-16 3:40 PM
@@ -29,7 +31,6 @@ public class maoPaoSort implements sortImpl {
         for (int i = 0; i < len-1; i++) {
             for (int j = i; j <len; j++) {
                 if(array[i]>array[j]){
-
                     temp =array[j];
                     array[j] = array[i];
                     array[i] = temp;

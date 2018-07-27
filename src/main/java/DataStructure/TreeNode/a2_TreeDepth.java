@@ -8,6 +8,9 @@ package DataStructure.TreeNode;
 public class a2_TreeDepth {
     public static void main(String[] args) {
 
+        TreeNode treeNode = new TreeNodeEntity().treeNode;
+
+        System.out.println(TreeDepth(treeNode));
     }
 
     public static int TreeDepth(TreeNode pRoot) {
@@ -16,6 +19,6 @@ public class a2_TreeDepth {
         if(pRoot.left == null &&pRoot.right == null ) return 1;
         int left = TreeDepth((pRoot.left));
         int right = TreeDepth((pRoot.right));
-        return left>right? left+1:right+1;
+        return left>right ? left+1:right+1;
     }
 }

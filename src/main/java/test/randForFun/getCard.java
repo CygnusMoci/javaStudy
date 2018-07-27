@@ -64,7 +64,7 @@ public class getCard extends JFrame implements ActionListener {
         jFrame.setTitle("恋与制作人抽奖模拟");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setVisible(true);
-        jFrame.setSize(250,80);
+        jFrame.setSize(250,100);
         jFrame.setLocation(400,200);
 
         Scanner sc = new Scanner(System.in);
